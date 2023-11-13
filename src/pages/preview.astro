@@ -1,0 +1,34 @@
+---
+import Layout from "../layouts/Layout.astro";
+import BlogPreview from "../components/BlogPreview";
+---
+
+<Layout title="My first blog with Astro">
+  <main class="main-content">
+    <BlogPreview client:only="preact" />
+    <!-- <h1 class="title"></h1>
+    <p class="publishedAt"></p>
+    <div class="post"></div> -->
+  </main>
+</Layout>
+
+<script>
+  import { getBlogDetail } from "../library/microcms";
+
+  const params = new URLSearchParams(window.location.search);
+  const contentId = params.get("contentId");
+  const draftKey = params.get("draftKey");
+
+  if (contentId && draftKey) {
+    getBlogDetail(contentId, { draftKey }).then((data) => {
+      const titleElement = document.querySelector(".title");
+      const publishedAtElement = document.querySelector(".publishedAt");
+      const postElement = document.querySelector(".post");
+
+      titleElement && (titleElement.textContent = data.title);
+      publishedAtElement &&
+       (publishedAtElement.textContent = data.publishedAt ?? data.createdAt);
+      postElement && (postElement.innerHTML = data.content);
+    });
+  }
+</script>

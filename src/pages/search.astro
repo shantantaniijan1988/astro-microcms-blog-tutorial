@@ -1,0 +1,12 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SearchButton from "../components/SearchButton";
+import BlogSearch from "../components/BlogSearch";
+---
+
+<Layout title="My first blog with Astro">
+  <main class="main-content">
+    <SearchButton client:visible />
+    <BlogSearch client:only="preact" />
+  </main>
+</Layout>

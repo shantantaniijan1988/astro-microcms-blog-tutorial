@@ -1,0 +1,98 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+body {
+  font-family: "Roboto", "Noto Sans JP", sans-serif;
+  color: #333;
+}
+
+.wrapper {
+  width: 768px;
+  max-width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.main-content {
+  padding: 4rem 1rem;
+}
+
+.main-content .title {
+  padding-left: 1em;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  border-left: 8px solid #0d6efd;
+}
+
+.main-content .publishedAt {
+  margin-top: 2rem;
+  font-size: 0.875rem;
+}
+
+.main-content .post {
+  margin-top: 2rem;
+}
+
+.main-content .post p {
+  line-height: 1.7;
+}
+
+.post-search {
+  display: flex;
+  align-items: center;
+  gap: 0 1rem;
+}
+
+.post-search label {
+  align-self: stretch;
+}
+
+.post-search input {
+  color: inherit;
+  padding: 0.25rem 0.5rem;
+}
+
+.post-search button {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  align-self: stretch;
+}
+
+.blog-search {
+  margin-top: 2rem;
+}
+
+.pagination {
+  margin-top: 2rem;
+}
+
+.pagination ul {
+  display: flex;
+  gap: 0 0.5rem;
+}
+
+.pagination button {
+  background-color: inherit;
+  border: none;
+  border-radius: 0;
+  color: inherit;
+  font: inherit;
+}

@@ -1,0 +1,39 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { getBlogs } from "../library/microcms";
+
+const response = await getBlogs({ fields: ["id", "title"] });
+---
+
+<Layout title="My first blog with Astro">
+  <main class="main-content">
+    <h1 class="title">投稿一覧</h1>
+    <ul>
+      {
+        response.contents.map((content: any) => (
+          <li>
+            <a href={content.id}>{content.title}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </main>
+</Layout>
+
+<style lang="scss">
+  .title {
+    padding-left: 1em;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    border-left: 8px solid #0d6efd;
+  }
+
+  ul {
+    margin-top: 2rem;
+  }
+
+  li + li {
+    margin-top: 0.5rem;
+  }
+</style>
